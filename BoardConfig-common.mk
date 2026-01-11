@@ -14,9 +14,10 @@ include device/google/zumapro/BoardConfig-16k-common.mk
 endif
 
 TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-2a
+TARGET_ARCH_VARIANT := armv8-2a-dotprod
 TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_VARIANT := cortex-a55
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT_RUNTIME := cortex-a510
 
 BOARD_BOOTCONFIG += \
     androidboot.boot_devices=13200000.ufs
@@ -164,9 +165,6 @@ BOARD_GOOGLE_DYNAMIC_PARTITIONS_PARTITION_LIST := \
 
 # Set error limit to BOARD_SUPER_PARTITON_SIZE - 500MB
 BOARD_SUPER_PARTITION_ERROR_LIMIT := 8006926336
-
-# Reserve space for gapps install
--include vendor/lineage/config/BoardConfigReservedSize.mk
 
 # Build a separate system_dlkm partition
 BOARD_USES_SYSTEM_DLKMIMAGE := true
